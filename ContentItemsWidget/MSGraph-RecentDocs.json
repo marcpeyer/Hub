@@ -1,0 +1,49 @@
+{
+  "configTypeKey": "widget_contentItems",
+  "connectableKey": "documents",
+  "title": {
+    "de": "Dokumente",
+    "en": "Documents"
+  },
+  "tabs": [
+    {
+      "title": {
+        "de": "Kürzlich benutzt",
+        "en": "Recently used"
+      },
+      "layoutTemplate": {
+        "configTypeKey": "layoutTemplate_list",
+        "columns": 1,
+        "enableScrolling": true
+      },
+      "itemTemplate": {
+        "configTypeKey": "itemTemplate_simple",
+        "imageWidth": "2.5rem",
+        "imageDisplayMode": "Round"
+      },
+      "showSearch": false,
+      "showPreview": false,
+      "actions": [
+        {
+          "configTypeKey": "widget_components_actionButton",
+          "accentAction": false,
+          "title": {
+            "de": "Alles anzeigen",
+            "en": "View all"
+          },
+          "action": {
+            "expression": "window.open(_mp.connectable.objects.Documents_Recently_used_dataProvider.viewAllUrl.value);"
+          }
+        }
+      ],
+      "data": {
+        "dataSource": {
+          "configTypeKey": "userDataSource_graph",
+          "propertyMappingsKey": "propertyMapper_graph_document_insights_simple",
+          "queryType": "RecentlyUsed"
+        },
+        "contentType": "Document"
+      }
+    }
+  ]
+}
