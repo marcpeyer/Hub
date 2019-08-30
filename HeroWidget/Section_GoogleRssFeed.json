@@ -1,0 +1,21 @@
+{
+  "data": {
+    "contentType": "News",
+    "dataSource": {
+      "configTypeKey": "userDataSource_Rest",
+      "useProxy": true,
+      "propertyMappingsKey": {
+        "title": "$('<div>').html(item.querySelector('title').textContent).text()",
+        "subTitle": "$('<div>').html(item.querySelector('content').textContent).text()",
+        "onClickUrl": "item.querySelector('link').attributes.href.value",
+        "floater": "moment(item.querySelector('published').textContent).fromNow()"
+      },
+      "isRss": true,
+      "itemsExpression": "Array.prototype.slice.call(new DOMParser().parseFromString(result, 'text/xml').children[0].querySelectorAll('entry'))",
+      "restUrl": "https://www.google.com/alerts/feeds/<YOUR_FEED_ID>"
+    }
+  },
+  "icon": "globe-earth",
+  "noBackgroundImage": false,
+  "numberOfBullets": 5
+}
