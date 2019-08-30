@@ -1,5 +1,5 @@
-# MP.O365.Hub
-Sample configurations for MatchPoint for O365 Hub.
+# MatchPoint Hub
+Sample configurations for MatchPoint Hub.
 
 ## Rules
 - no customer or client names or anything that could refer to customers or clients
