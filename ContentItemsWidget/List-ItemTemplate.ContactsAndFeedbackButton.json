@@ -1,0 +1,64 @@
+{
+  "configTypeKey": "widget_contentItems",
+  "title": "Department Contacts",
+  "connectableKey": "people",
+  "tabs": [
+    {
+      "configTypeKey": "webParts_contentItemsTab",
+      "connectableKey": "peopleTab",
+      "searchPlaceholder": "Find somebody",
+      "title": "People",
+      "data": {
+        "searchText": {
+          "expression": "_mp.connectable.objects.people_peopleTab_search"
+        },
+        "connectableKey": "people_peopleTab_dataProvider",
+        "configTypeKey": "dataProvider_sharePoint_list",
+        "rowLimit": 20,
+        "absoluteWebUrl": "<yourTenantUrl>",
+        "serverRelativeListUrl": "/Lists/Contacts",
+        "propertyMappings": {
+          "fullName": "item.FirstName + ' ' + item.Title",
+          "jobTitle": "item.Company",
+          "officeLocation": "item.WorkPhone",
+          "workPhone": "item.HomePhone",
+          "workEmail": "item.ualn"
+        }
+      },
+      "itemTemplate": {
+        "configTypeKey": "itemTemplate_htmlExpression",
+        "html": {
+          "expression": "'<div style=\"padding-left:20px\"><div><span style=\"font-weight: bold;\">Name: ' + item.fullName.value + '</span></br><span style=\"padding-top:4px\">Job Title: ' + item.jobTitle.value + '</span></br><span style=\"padding-top:4px\">Email: <a href=\"mailto:' + item.workEmail.value + '\">' + item.workEmail.value + '</a></span></br><span style=\"padding-top:4px\">Phone: ' + item.workPhone.value + '</span></br><span style=\"padding-top:4px\">Location: ' + ((item.officeLocation.value === null) ? '-' : item.officeLocation.value) + '</span></div></div></p>'"
+        },
+        "styles": ".bar {display: block;}"
+      },
+      "layoutTemplate": {
+        "configTypeKey": "layoutTemplate_list",
+        "columns": 2,
+        "enableScrolling": true
+      },
+      "showSearch": false,
+      "showPreview": false,
+      "actions": [
+        {
+          "configTypeKey": "widget_components_actionButton",
+          "accentAction": true,
+          "title": "Tell us your problem!",
+          "action": {
+            "expression": "location.href = 'mailto:feedback@example.com?subject=Feedback from ' + _mp.currentUser.firstName + ' ' + _mp.currentUser.surName + '&body=Dear, %0D%0DI have the following request/feedback:'"
+          }
+        },
+        {
+          "configTypeKey": "widget_components_actionButton",
+          "accentAction": false,
+          "title": {
+            "expression": "_mp.util.translate('viewAll')"
+          },
+          "action": {
+            "expression": "window.open(_mp.connectable.objects.people_peopleTab_dataProvider.viewAllUrl.value);"
+          }
+        }
+      ]
+    }
+  ]
+}
