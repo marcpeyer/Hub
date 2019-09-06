@@ -1,0 +1,175 @@
+{
+  "configTypeKey": "widget_contentItems",
+  "title": "Documents",
+  "connectableKey": "docs",
+  "tabs": [
+    {
+      "title": "Vendor Management",
+      "connectableKey": "vendormanagement",
+      "data": {
+        "configTypeKey": "dataProvider_sharePoint_list",
+        "rowLimit": 30,
+        "propertyMappings": "propertyMapper_sharePoint_list_document_simple",
+        "absoluteWebUrl": "<YourTenantUrl>",
+        "serverRelativeListUrl": "/Shared Documents/",
+        "searchText": {
+          "expression": "_mp.connectable.objects.docs_vendormanagement_search"
+        },
+        "filterExpression": {
+          "expression": "(\"FileDirRef eq '/Shared Documents/Vendor Management'\")"
+        },
+        "connectableKey": "docs_vendormanagement_dataProvider"
+      },
+      "layoutTemplate": {
+        "configTypeKey": "layoutTemplate_list",
+        "columns": 4,
+        "enableScrolling": true
+      },
+      "itemTemplate": {
+        "configTypeKey": "itemTemplate_simple",
+        "imageWidth": "2.5rem",
+        "imageDisplayMode": "Round"
+      },
+      "showSearch": false,
+      "showPreview": false,
+      "actions": [
+        {
+          "configTypeKey": "widget_components_actionButton",
+          "accentAction": false,
+          "title": {
+            "expression": "_mp.util.translate('viewAll')"
+          },
+          "action": {
+            "expression": "window.open(_mp.connectable.objects.docs_vendormanagement_dataProvider.viewAllUrl.value + 'Vendor Management');"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Inventory Management",
+      "connectableKey": "iventorymanagement",
+      "data": {
+        "configTypeKey": "dataProvider_sharePoint_list",
+        "rowLimit": 30,
+        "propertyMappings": "propertyMapper_sharePoint_list_document_simple",
+        "absoluteWebUrl": "<YourTenantUrl>",
+        "serverRelativeListUrl": "/Shared Documents/",
+        "searchText": {
+          "expression": "_mp.connectable.objects.docs_inventorymanagement_search"
+        },
+        "filterExpression": {
+          "expression": "(\"FileDirRef eq '/Shared Documents/Inventory Management'\")"
+        },
+        "connectableKey": "docs_inventorymanagement_dataProvider"
+      },
+      "layoutTemplate": {
+        "configTypeKey": "layoutTemplate_list",
+        "columns": 4,
+        "enableScrolling": true
+      },
+      "itemTemplate": {
+        "configTypeKey": "itemTemplate_simple",
+        "imageWidth": "2.5rem",
+        "imageDisplayMode": "Round"
+      },
+      "showSearch": false,
+      "showPreview": false,
+      "actions": [
+        {
+          "configTypeKey": "widget_components_actionButton",
+          "accentAction": false,
+          "title": {
+            "expression": "_mp.util.translate('viewAll')"
+          },
+          "action": {
+            "expression": "window.open(_mp.connectable.objects.docs_inventorymanagement_dataProvider.viewAllUrl.value  + '/Inventory Management');"
+          }
+        }
+      ]
+    },
+    {
+      "title": "News & Articles",
+      "connectableKey": "newsarticles",
+      "data": {
+        "configTypeKey": "dataProvider_sharePoint_list",
+        "rowLimit": 30,
+        "propertyMappings": "propertyMapper_sharePoint_list_document_simple",
+        "absoluteWebUrl": "<YourTenantUrl>",
+        "serverRelativeListUrl": "/Shared Documents/",
+        "searchText": {
+          "expression": "_mp.connectable.objects.docs_newsarticles_search"
+        },
+        "filterExpression": {
+          "expression": "(\"FileDirRef eq '/Shared Documents/News%20%26%20Articles'\")"
+        },
+        "connectableKey": "docs_newsarticles_dataProvider"
+      },
+      "layoutTemplate": {
+        "configTypeKey": "layoutTemplate_list",
+        "columns": 4,
+        "enableScrolling": true
+      },
+      "itemTemplate": {
+        "configTypeKey": "itemTemplate_simple",
+        "imageWidth": "2.5rem",
+        "imageDisplayMode": "Round"
+      },
+      "showSearch": false,
+      "showPreview": false,
+      "actions": [
+        {
+          "configTypeKey": "widget_components_actionButton",
+          "accentAction": false,
+          "title": {
+            "expression": "_mp.util.translate('viewAll')"
+          },
+          "action": {
+            "expression": "window.open(_mp.connectable.objects.docs_newsarticles_dataProvider.viewAllUrl.value  + '/News & Articles');"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Logistics & Services",
+      "connectableKey": "logisticsservices",
+      "data": {
+        "configTypeKey": "dataProvider_sharePoint_list",
+        "rowLimit": 30,
+        "propertyMappings": "propertyMapper_sharePoint_list_document_simple",
+        "absoluteWebUrl": "<YourTenantUrl>",
+        "serverRelativeListUrl": "/Shared Documents/",
+        "searchText": {
+          "expression": "_mp.connectable.objects.docs_logisticsservices_search"
+        },
+        "filterExpression": {
+          "expression": "(\"FileDirRef eq '/Shared Documents/Logistics%20%26%20Services'\")"
+        },
+        "connectableKey": "docs_logisticsservices_dataProvider"
+      },
+      "layoutTemplate": {
+        "configTypeKey": "layoutTemplate_list",
+        "columns": 4,
+        "enableScrolling": true
+      },
+      "itemTemplate": {
+        "configTypeKey": "itemTemplate_simple",
+        "imageWidth": "2.5rem",
+        "imageDisplayMode": "Round"
+      },
+      "showSearch": false,
+      "showPreview": false,
+      "actions": [
+        {
+          "configTypeKey": "widget_components_actionButton",
+          "accentAction": false,
+          "title": {
+            "expression": "_mp.util.translate('viewAll')"
+          },
+          "action": {
+            "expression": "window.open(_mp.connectable.objects.docs_logisticsservices_dataProvider.viewAllUrl.value + '/Logistics & Services');"
+          }
+        }
+      ]
+    }
+  ]
+}
