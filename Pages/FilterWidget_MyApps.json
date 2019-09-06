@@ -1,0 +1,184 @@
+{
+  "displayName": "My Apps",
+  "webPart": {
+    "configTypeKey": "webPart_gridLayout",
+    "areas": {
+      "1": [
+        {
+          "x": 0,
+          "y": 0,
+          "i": "wd4qqh7iso",
+          "h": 1,
+          "w": 1,
+          "isResizable": false
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "i": "ghvn24cyidi",
+          "h": 1,
+          "w": 1,
+          "isResizable": false
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "i": "i3sfa64pfl8",
+          "h": 1,
+          "w": 1,
+          "isResizable": false
+        }
+      ],
+      "2": [
+        {
+          "x": 0,
+          "y": 0,
+          "i": "wd4qqh7iso",
+          "h": 1,
+          "w": 2
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "i": "ghvn24cyidi",
+          "h": 1,
+          "w": 2
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "i": "i3sfa64pfl8",
+          "h": 1,
+          "w": 2
+        }
+      ],
+      "3": [
+        {
+          "x": 0,
+          "y": 0,
+          "i": "wd4qqh7iso",
+          "h": 1,
+          "w": 3
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "i": "ghvn24cyidi",
+          "h": 1,
+          "w": 3
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "i": "i3sfa64pfl8",
+          "h": 1,
+          "w": 3
+        }
+      ],
+      "4": [
+        {
+          "w": 1,
+          "h": 1,
+          "x": 1,
+          "y": 0,
+          "i": "wd4qqh7iso"
+        },
+        {
+          "w": 1,
+          "h": 1,
+          "x": 0,
+          "y": 0,
+          "i": "ghvn24cyidi"
+        },
+        {
+          "w": 2,
+          "h": 1,
+          "x": 2,
+          "y": 0,
+          "i": "i3sfa64pfl8"
+        }
+      ]
+    },
+    "webParts": {
+      "i3sfa64pfl8": {
+        "title": "Files",
+        "configTypeKey": "widget_tabs",
+        "tabs": [
+          {
+            "configTypeKey": "widgetTab_sharePoint_items",
+            "contentType": "Document",
+            "conditionsProvider": {
+              "connectableKey": "filters"
+            }
+          }
+        ]
+      },
+      "ghvn24cyidi": {
+        "configTypeKey": "widget_filters",
+        "title": "Filter your Apps",
+        "connectableKey": "filters",
+        "filters": [
+          {
+            "displayName": "Choose your app",
+            "propertyName": "FileType",
+            "type": "SingleChoice",
+            "items": [
+              {
+                "displayName": "Excel",
+                "value": "xlsx"
+              },
+              {
+                "displayName": "Word",
+                "value": "docx"
+              },
+              {
+                "displayName": "PowerPoint",
+                "value": "pptx"
+              },
+              {
+                "displayName": "PDF",
+                "value": "pdf"
+              }
+            ]
+          }
+        ]
+      },
+      "wd4qqh7iso": {
+        "configTypeKey": "widget_contentItems",
+        "title": "App Launcher",
+        "tabs": [
+          {
+            "configTypeKey": "webParts_contentItemsTab",
+            "itemTemplate": {
+              "configTypeKey": "itemTemplate_tile"
+            },
+            "layoutTemplate": {
+              "configTypeKey": "layoutTemplate_flow",
+              "minWidthInPx": 150,
+              "maxWidthInPx": 300,
+              "ratio": 1
+            },
+            "data": {
+              "configTypeKey": "dataProvider_sharePoint_list",
+              "absoluteWebUrl": "<YOUR_TENANT_URL>",
+              "serverRelativeListUrl": "lists/apps",
+              "propertyMappings": {
+                "title": "item.Title",
+                "onClickUrl": "item.AppUrl",
+                "image": {
+                  "type": "'Image'",
+                  "value": {
+                    "imageUrl": "'<YOUR_TENANT_URL>/AppIcons/' + item.FileType + '.png'"
+                  }
+                }
+              },
+              "conditionsProvider": {
+                "connectableKey": "filters"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
