@@ -1,0 +1,67 @@
+{
+    "configTypeKey": "widget_contentItems",
+    "title": {
+      "expression": "_mp.util.translate('workspaces')"
+    },
+    "connectableKey": "sitesContainer",
+    "tabs": [
+      {
+        "connectableKey": "Sites",
+        "searchPlaceholder": {
+          "expression": "_mp.util.translate('searchInWorkspaces')"
+        },
+        "data": {
+          "configTypeKey": "dataProvider_mp_workspaces",
+          "searchText": "_mp.connectable.objects.MyWork_Sites_search",
+          "propertyMappings": {
+            "key": "item['SPWebUrl']",
+            "title": "item['Title']",
+            "onClickUrl": "item['SPWebUrl']",
+            "image": {
+              "type": "'Image'",
+              "value": "$.getJSON(item['SPWebUrl'] + '/_api/web/SiteLogoUrl').then(function(response) { return !response.value ? ({iconName: 'folder'}) : ({imageUrl: response.value}); }).catch(function() {return {iconName: 'folder'};})"
+            }
+          },
+          "sorting": [
+            {
+              "Property": "LastModifiedTime",
+              "Direction": 1
+            }
+          ],
+          "rowLimit": 30
+        },
+        "layoutTemplate": {
+          "configTypeKey": "layoutTemplate_list",
+          "columns": 1,
+          "enableScrolling": true
+        },
+        "itemTemplate": {
+          "configTypeKey": "itemTemplate_simple",
+          "imageWidth": "2.5rem",
+          "imageDisplayMode": "Round"
+        },
+        "showSearch": true,
+        "showPreview": false,
+        "actions": [
+          {
+            "accentAction": false,
+            "title": {
+              "expression": "_mp.util.translate('viewAll')"
+            },
+            "action": {
+              "expression": "window.open(_mp.connectable.objects.MyWork_Sites_dataProvider.viewAllUrl.value);"
+            }
+          },
+          {
+            "accentAction": true,
+            "title": {
+              "expression": "_mp.util.translate('createNew')"
+            },
+            "action": {
+              "expression": "_mp.executeHook('CreateWorkspace', function () { window.open('/_layouts/15/CreateGroup.aspx'); })"
+            }
+          }
+        ]
+      }
+    ]
+  }
