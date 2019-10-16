@@ -1,0 +1,56 @@
+/*
+My Links Widget
+You can add a My-Links widget to you page. To do do, you need to add a Links App to your SharePoint tenant and configure it accordingly:
+
+go to Site Contents
+click on "New" > "App"
+select "Links", provide a name and click on Create
+navigate to the list, open the List Settings and navigate to Advanced Settings
+under "Item-Level Permissions" select Read items that were created by the user and Create items and edit items that were created by the user
+under "Folders" select Make "New Folder" command available?: No
+Then add the widget to a page by using the following configuration and replacing the placeholders <YourTenant> and <LinksList>.
+*/
+
+"myLinks": {
+  "configTypeKey": "widget_contentItems",
+  "connectableKey": "MyLinks",
+  "tabs": [
+    {
+      "title": {
+        "en": "My Links"
+      },
+      "connectableKey": "tab",
+      "contentType": "ListItem",
+      "dataSource": {
+        "configTypeKey": "userDataSource_sharePointList",
+        "absoluteWebUrl": "https://<YourTenant>.sharepoint.com/",
+        "serverRelativeListUrl": "/Lists/<LinksList>/",
+        "rowLimit": 10,
+        "propertyMappingsKey": "propertyMapper_sharePoint_list_link_simple"
+      },
+      "layoutTemplate": {
+        "configTypeKey": "layoutTemplate_list",
+        "columns": 2
+      },
+      "itemTemplate": {
+        "configTypeKey": "itemTemplate_simple",
+        "imageWidth": "2.5rem",
+        "imageDisplayMode": "Round"
+      },
+      "showSearch": false,
+      "showPreview": false,
+      "actions": [
+        {
+          "configTypeKey": "widget_components_actionButton",
+          "accentAction": false,
+          "title": {
+            "expression": "_mp.util.translate('viewAll')"
+          },
+          "action": {
+            "expression": "window.open(_mp.connectable.objects.MyLinks_tab_dataProvider.viewAllUrl.value);"
+          }
+        }
+      ]
+    }
+  ]
+}
